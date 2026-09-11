@@ -14,7 +14,32 @@ npm run dev      # http://localhost:3000
 npm run build && npm start
 ```
 
-## Palette
+## Palette variants
+
+The same page ships in five palettes, all derived from the brand mark and all
+verified to WCAG AA. Use the floating switcher (bottom-right) to move between them.
+
+| Route | Name | Field | Accent |
+|---|---|---|---|
+| `/` | Forest | `#06301F` pine | `#00A651` logo green |
+| `/version1` | Petrol | `#06302D` deep teal | `#00B295` teal-green |
+| `/version2` | Marine | `#0A2038` deep navy | `#00A651` logo green |
+| `/version3` | Azure | `#0B2545` indigo | `#2E8BC0` azure |
+| `/version4` | Graphite | `#151B1A` near-black | `#00A98F` teal |
+
+Each theme is one `[data-theme]` block in `app/globals.css` that re-declares the
+design tokens; `components/Landing.tsx` applies it to a wrapper and every
+descendant inherits. All translucent colours are `color-mix()` against those
+tokens, so a theme propagates to scrims, shadows and overlays without edits.
+
+Per-theme, three accent shades are derived and contrast-checked:
+`--green-deep` carries white text (≥4.55:1), `--green-text` sits on `--bone`
+(≥4.5:1), `--green-2` sits on the dark fields (≥6.7:1).
+
+**The switcher is a review tool.** Remove `<ThemeBar />` from
+`components/Landing.tsx` for the client build.
+
+## Default palette
 
 Taken from the logo (`public/img/logo/logo.png`), not from the blue mock:
 
