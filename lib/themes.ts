@@ -4,7 +4,18 @@
    picker can preview a theme without mounting it.
    ========================================================= */
 
-export type ThemeId = 'petrol' | 'marine' | 'azure' | 'graphite';
+export type ThemeId =
+  | 'petrol'
+  | 'marine'
+  | 'azure'
+  | 'graphite'
+  | 'slate'
+  | 'signal'
+  | 'olive'
+  | 'oxide'
+  | 'bronze'
+  | 'crimson'
+  | 'mink';
 
 export interface Theme {
   id: ThemeId;
@@ -50,5 +61,54 @@ export const THEMES: Theme[] = [
     name: 'Graphite',
     blurb: 'Near-black steel field with a teal accent — the most industrial.',
     swatch: ['#151B1A', '#00A98F', '#EAEBEA'],
+  },
+  {
+    id: 'slate',
+    route: '/version5',
+    name: 'Slate',
+    blurb: 'Blue-grey steel field with a cyan accent — cool and understated.',
+    swatch: ['#1D2C37', '#10A9C9', '#E8ECEF'],
+  },
+  {
+    id: 'signal',
+    route: '/version6',
+    name: 'Signal',
+    blurb: 'Cobalt field with a safety-orange accent — the site-hoarding look.',
+    swatch: ['#0E224E', '#F86908', '#EFEBE4'],
+  },
+  {
+    id: 'olive',
+    route: '/version7',
+    name: 'Olive',
+    blurb: 'Dark olive field with a moss-green accent — an earthier take on the logo green.',
+    swatch: ['#242B11', '#89AE37', '#ECECE2'],
+  },
+  {
+    id: 'oxide',
+    route: '/version8',
+    name: 'Oxide',
+    blurb: 'Weathered-steel brown with a corten rust accent — the most material.',
+    swatch: ['#331C14', '#C4592A', '#F2EAE3'],
+  },
+  {
+    id: 'bronze',
+    route: '/version9',
+    name: 'Bronze',
+    blurb: 'Espresso field with a brass accent — warm and premium.',
+    swatch: ['#251F18', '#BF8F34', '#F0EBE1'],
+  },
+  {
+    id: 'crimson',
+    route: '/version10',
+    name: 'Crimson',
+    blurb: 'Oxblood field with a signal-red accent — the boldest of the set.',
+    swatch: ['#391116', '#CC3336', '#F2E9E6'],
+  },
+  {
+    id: 'mink',
+    route: '/version11',
+    name: 'Mink',
+    blurb: 'The Mink Studio reference: burnt-sienna bands on warm cream, with cream buttons.',
+    swatch: ['#732C14', '#CC8E64', '#F0EDE8'],
   },
 ];

@@ -16,8 +16,9 @@ npm run build && npm start
 
 ## Palette variants
 
-The same page ships in five palettes, all derived from the brand mark and all
-verified to WCAG AA. Use the floating switcher (bottom-right) to move between them.
+The same page ships in twelve palettes — `/` to `/version5` stay close to the brand
+mark, `/version6` to `/version10` push further out (orange, olive, rust, brass, red), and
+`/version11` matches the Mink Studio reference — all verified to WCAG AA. Use the floating switcher (bottom-right) to move between them.
 
 | Route | Name | Field | Accent |
 |---|---|---|---|
@@ -26,6 +27,13 @@ verified to WCAG AA. Use the floating switcher (bottom-right) to move between th
 | `/version2` | Marine | `#0A2038` deep navy | `#00A651` logo green |
 | `/version3` | Azure | `#0B2545` indigo | `#2E8BC0` azure |
 | `/version4` | Graphite | `#151B1A` near-black | `#00A98F` teal |
+| `/version5` | Slate | `#1D2C37` blue-grey | `#10A9C9` cyan |
+| `/version6` | Signal | `#0E224E` cobalt | `#F86908` safety orange |
+| `/version7` | Olive | `#242B11` dark olive | `#89AE37` moss |
+| `/version8` | Oxide | `#331C14` weathered brown | `#C4592A` corten rust |
+| `/version9` | Bronze | `#251F18` espresso | `#BF8F34` brass |
+| `/version10` | Crimson | `#391116` oxblood | `#CC3336` signal red |
+| `/version11` | Mink | `#732C14` burnt sienna | `#CC8E64` copper |
 
 Each theme is one `[data-theme]` block in `app/globals.css` that re-declares the
 design tokens; `components/Landing.tsx` applies it to a wrapper and every
@@ -35,6 +43,10 @@ tokens, so a theme propagates to scrims, shadows and overlays without edits.
 Per-theme, three accent shades are derived and contrast-checked:
 `--green-deep` carries white text (≥4.55:1), `--green-text` sits on `--bone`
 (≥4.5:1), `--green-2` sits on the dark fields (≥6.7:1).
+
+Mink is the one theme with component overrides: its field *is* its accent, so
+accent buttons would disappear on the sienna bands. Like the reference, it
+flips them to cream buttons with sienna type.
 
 **The switcher is a review tool.** Remove `<ThemeBar />` from
 `components/Landing.tsx` for the client build.

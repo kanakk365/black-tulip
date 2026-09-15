@@ -667,8 +667,8 @@ body.nav-open .drawer__nav a:nth-child(6){animation-delay:.46s}
 
 /* =========================================================
    THEMES
-   Alternate palettes for /version1 … /version4. Every token
-   below is derived from the brand mark and verified to WCAG AA:
+   Alternate palettes for /version1 … /version11. Every token
+   below is verified to WCAG AA:
    `--accent-deep` carries white text, `--accent-text` sits on
    `--bone`, `--accent-lt` sits on the dark fields.
    The default (no data-theme) is the logo green on pine.
@@ -711,6 +711,78 @@ body.nav-open .drawer__nav a:nth-child(6){animation-delay:.46s}
   --steel:#5E6564;
 }
 
+/* --- v5 · Slate — blue-grey steel field, cyan accent --------- */
+[data-theme='slate']{
+  --ink:#0D1319;   --ink-2:#151C23;
+  --pine:#1D2C37;  --pine-2:#263844;  --pine-3:#2F4250;
+  --green:#10A9C9; --green-deep:#0B8099; --green-text:#0F738A; --green-2:#34C4E5;
+  --bone:#E8ECEF;  --bone-2:#DAE0E3;  --bone-3:#CCD3D7;
+  --steel:#626A6F;
+}
+
+/* --- v6 · Signal — cobalt field, safety-orange accent -------- */
+[data-theme='signal']{
+  --ink:#0B1220;   --ink-2:#131B2B;
+  --pine:#0E224E;  --pine-2:#152D60;  --pine-3:#1C3770;
+  --green:#F86908; --green-deep:#C65101; --green-text:#B24A07; --green-2:#FD915D;
+  --bone:#EFEBE4;  --bone-2:#E4DED5;  --bone-3:#D8D0C6;
+  --steel:#6F6860;
+}
+
+/* --- v7 · Olive — dark olive field, moss-green accent -------- */
+[data-theme='olive']{
+  --ink:#12130E;   --ink-2:#1B1C17;
+  --pine:#242B11;  --pine-2:#2E3718;  --pine-3:#384220;
+  --green:#89AE37; --green-deep:#607F03; --green-text:#577309; --green-2:#99BF4A;
+  --bone:#ECECE2;  --bone-2:#DFE0D2;  --bone-3:#D2D3C3;
+  --steel:#696A5C;
+}
+
+/* --- v8 · Oxide — weathered-steel brown, corten rust accent -- */
+[data-theme='oxide']{
+  --ink:#16110F;   --ink-2:#201A17;
+  --pine:#331C14;  --pine-2:#41261C;  --pine-3:#4E2F24;
+  --green:#C4592A; --green-deep:#B04613; --green-text:#A13E0D; --green-2:#FD8C5E;
+  --bone:#F2EAE3;  --bone-2:#E7DCD4;  --bone-3:#DCCFC4;
+  --steel:#72675D;
+}
+
+/* --- v9 · Bronze — espresso field, brass accent -------------- */
+[data-theme='bronze']{
+  --ink:#15120F;   --ink-2:#1E1B17;
+  --pine:#251F18;  --pine-2:#312A22;  --pine-3:#3B342A;
+  --green:#BF8F34; --green-deep:#9A6D08; --green-text:#8A630D; --green-2:#D1A148;
+  --bone:#F0EBE1;  --bone-2:#E4DED1;  --bone-3:#D8D1C1;
+  --steel:#6F685B;
+}
+
+/* --- v10 · Crimson — oxblood field, signal-red accent -------- */
+[data-theme='crimson']{
+  --ink:#191010;   --ink-2:#231918;
+  --pine:#391116;  --pine-2:#49191F;  --pine-3:#572128;
+  --green:#CC3336; --green-deep:#B71824; --green-text:#A7101E; --green-2:#FC847D;
+  --bone:#F2E9E6;  --bone-2:#E7DCD8;  --bone-3:#DCCECA;
+  --steel:#726663;
+}
+
+/* --- v11 · Mink — the Mink Studio reference: burnt-sienna bands
+   on warm cream, charcoal type, copper marks ------------------ */
+[data-theme='mink']{
+  --ink:#181818;   --ink-2:#211F1E;
+  --pine:#732C14;  --pine-2:#68250F;  --pine-3:#944529;
+  --green:#CC8E64; --green-deep:#944529; --green-text:#732C14; --green-2:#FBCCA9;
+  --bone:#F0EDE8;  --bone-2:#E1DDD7;  --bone-3:#C5C3BF;
+  --steel:#706864;
+}
+/* The field is the accent here, so accent buttons would vanish on the
+   sienna bands. Mink inverts them: cream buttons with sienna type. */
+[data-theme='mink'] .btn:not(.btn--dark){--bg:var(--bone);--fg:var(--pine)}
+[data-theme='mink'] .btn:not(.btn--dark):hover{--fg:var(--bone)}
+[data-theme='mink'] .hdr.on-light .btn{--bg:var(--pine);--fg:var(--bone)}
+[data-theme='mink'] .svc__tab.is-on{background:var(--bone);border-color:var(--bone);color:var(--pine)}
+/* sienna is lighter than the other fields: lift the faintest footer copy to AA */
+[data-theme='mink'] .ftr__brand p,[data-theme='mink'] .ftr__bot{color:color-mix(in srgb,var(--bone) 70%,transparent)}
+
 /* =========================================================
    THEME SWITCHER (review tool — remove for the client build)
    ========================================================= */
@@ -729,6 +801,7 @@ body.nav-open .drawer__nav a:nth-child(6){animation-delay:.46s}
   /* absolute so the collapsed panel takes no layout space */
   position:absolute;bottom:calc(100% + 10px);right:0;
   display:grid;gap:2px;min-width:210px;padding:6px;
+  max-height:calc(100dvh - 90px);overflow-y:auto;overscroll-behavior:contain;
   background:color-mix(in srgb,var(--ink) 94%,transparent);backdrop-filter:blur(14px);
   border:1px solid color-mix(in srgb,var(--bone) 18%,transparent);border-radius:14px;
   opacity:0;visibility:hidden;transform:translateY(8px) scale(.97);transform-origin:bottom right;
@@ -741,5 +814,7 @@ body.nav-open .drawer__nav a:nth-child(6){animation-delay:.46s}
 .tbar__meta{display:grid;line-height:1.25}
 .tbar__meta strong{font-size:12.5px;font-weight:600;color:var(--bone)}
 .tbar__meta em{font-style:normal;font-size:10.5px;color:color-mix(in srgb,var(--bone) 60%,transparent);letter-spacing:.08em}
+/* twelve palettes: two columns where there is room, so the panel stays short */
+@media (min-width:601px){.tbar__list{grid-template-columns:repeat(2,minmax(190px,1fr))}}
 @media (max-width:600px){.tbar__name{display:none}}
 @media print{.tbar{display:none}}
